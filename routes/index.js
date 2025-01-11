@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   // res.sendFile(
   //   path.join(__dirname, "../spa/build/index.html")
   // );
-  res.json({dir,__dirname})
+  res.send(__dirname)
 });
 
 module.exports = router;
