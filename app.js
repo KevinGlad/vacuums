@@ -6,13 +6,12 @@ let cookieParser = require('cookie-parser')
 let logger = require('morgan')
 
 let indexRouter = require('./routes/index')
-let usersRouter = require('./routes/users')
 let vacuumRouter = require("./routes/vacuum")
 
 let app = express();
 
 // intial config vacuums are not clogged
-let vacuums={
+let vacuumStatuses={
   A:{
     1: false,
     2: false,
@@ -39,7 +38,7 @@ let vacuums={
   }
 }
 
-app.locals.vacuumStatus = vacuums
+app.locals.vacuumStatus = vacuumStatuses
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -50,11 +49,10 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
-app.use(express.static(path.join(__dirname, 'public')))
+//app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'spa/build')))
 
 app.use("/", indexRouter)
-app.use("/users", usersRouter)
 app.use("/vacuum",vacuumRouter)
 
 // catch 404 and forward to error handler
