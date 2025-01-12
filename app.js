@@ -1,14 +1,15 @@
-var createError = require('http-errors');
-var express = require('express');
-const cors = require("cors");
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors')
+let express = require('express')
+const cors = require("cors")
+let path = require('path')
+let cookieParser = require('cookie-parser')
+let logger = require('morgan')
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+let indexRouter = require('./routes/index')
+let usersRouter = require('./routes/users')
+let vacuumsRouter = require("./routes/vacuum")
 
-var app = express();
+let app = express();
 
 // intial config vacuums are not clogged
 let vacuums={
@@ -41,19 +42,20 @@ let vacuums={
 app.locals.vacuumStatus = vacuums
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'jade')
 
-app.use(logger('dev'));
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'spa/build')));
+app.use(logger('dev'))
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+app.use(cookieParser())
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'spa/build')))
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use("/", indexRouter)
+app.use("/users", usersRouter)
+app.use("/vacuum",vacuumsRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
