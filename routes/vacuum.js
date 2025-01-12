@@ -2,18 +2,19 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  let {side,vacuum} = req.body
-
-  res.send({side, vacuum, status: req.app.locals.vacuumStatus[side][vacuum]})
+  let side = req.query.side
+  let id = req.query.id
+    console.log(req.body)
+  res.send({side, id, status: req.app.locals.vacuumStatus[side][id]})
 
 });
 
 router.post('/',function(req, res, next){
-  let {side,vacuum} = req.body
+  let {side,id} = req.body
 
-  req.app.locals.vacuumStatus[side][vacuum] = !req.app.locals.vacuumStatus[side][vacuum]
+  req.app.locals.vacuumStatus[side][id] = !req.app.locals.vacuumStatus[side][id]
 
-  res.send({side, vacuum, status: req.app.locals.vacuumStatus[side][vacuum]})
+  res.send({side, id, status: req.app.locals.vacuumStatus[side][id]})
 })
 
 module.exports = router;
