@@ -12,9 +12,9 @@ router.get('/', function(req, res, next) {
 
 router.post('/',function(req, res, next){
     let {side,id} = req.body
-
+    console.log({side, id})
     req.app.locals.vacuumStatus[side][id] = !req.app.locals.vacuumStatus[side][id]
-
+    console.log(req.app.locals.vacuumStatus)
     res.send({side, id, status: req.app.locals.vacuumStatus[side][id]})
 })
 
