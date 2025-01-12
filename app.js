@@ -7,7 +7,7 @@ let logger = require('morgan')
 
 let indexRouter = require('./routes/index')
 let usersRouter = require('./routes/users')
-let vacuumsRouter = require("./routes/vacuum")
+let vacuumRouter = require("./routes/vacuum")
 
 let app = express();
 
@@ -55,7 +55,7 @@ app.use(express.static(path.join(__dirname, 'spa/build')))
 
 app.use("/", indexRouter)
 app.use("/users", usersRouter)
-app.use("/vacuum",vacuumsRouter)
+app.use("/vacuum",vacuumRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
