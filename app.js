@@ -5,38 +5,83 @@ let path = require('path')
 let cookieParser = require('cookie-parser')
 let logger = require('morgan')
 
-let indexRouter = require('./routes/index')
+let indexRouter = require("./routes/index")
 let vacuumRouter = require("./routes/vacuum")
+let storeRouter = requrie("./routes/store")
 
 let app = express();
 
 // intial config vacuums are not clogged
-let vacuumStatuses={
-  A:{
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false,
-    6: false,
-    7: false,
-    8: false,
-    9: false,
-    10: false
-  },
-  B:{
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false,
-    6: false,
-    7: false,
-    8: false,
-    9: false,
-    10: false
+let vacuumStatuses = {
+    5202: {
+      A:{
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false,
+        6: false,
+        7: false,
+        8: false,
+        9: false,
+        10: false,
+        11: false,
+        12: false,
+        13: false,
+        14: false,
+        15: false
+      },
+      B:{
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false,
+        6: false,
+        7: false,
+        8: false,
+        9: false,
+        10: false,
+        11: false,
+        12: false,
+        13: false
+      }
+    },
+    5213: {
+      A:{
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false,
+        6: false,
+        7: false,
+        8: false,
+        9: false,
+        10: false,
+        11: false,
+        12: false,
+        13: false,
+        14: false,
+        15: false
+      },
+      B:{
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false,
+        6: false,
+        7: false,
+        8: false,
+        9: false,
+        10: false,
+        11: false,
+        12: false,
+        13: false
+      }
+    }
   }
-}
 
 app.locals.vacuumStatus = vacuumStatuses
 
@@ -54,6 +99,7 @@ app.use(express.static(path.join(__dirname, 'spa/build')))
 
 app.use("/", indexRouter)
 app.use("/vacuum",vacuumRouter)
+app.use("store", storeRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
