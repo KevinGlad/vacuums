@@ -98,6 +98,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'spa/build')))
 
 app.use("/", indexRouter)
+app.use("/dashboard",indexRouter)
 app.use("/vacuum",vacuumRouter)
 app.use("/store", storeRouter)
 

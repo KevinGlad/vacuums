@@ -4,10 +4,9 @@ var path = require('path');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  // res.sendFile(
-  //   path.join(__dirname, "../spa/build/index.html")
-  // );
-  res.send(__dirname)
+  res.sendFile(
+    path.join(__dirname, "../spa/build/index.html")
+  );
 });
 
 module.exports = router;
