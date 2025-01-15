@@ -7,7 +7,7 @@ let logger = require('morgan')
 
 let indexRouter = require("./routes/index")
 let vacuumRouter = require("./routes/vacuum")
-let storeRouter = requrie("./routes/store")
+let storeRouter = require("./routes/store")
 
 let app = express();
 
