@@ -99,7 +99,7 @@ app.use(express.static(path.join(__dirname, 'spa/build')))
 
 app.use("/", indexRouter)
 app.use("/vacuum",vacuumRouter)
-app.use("/store", storeRouter)
+app.use("/dashboard", storeRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
