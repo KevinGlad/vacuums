@@ -29,7 +29,8 @@ let vacuumStatuses = {
         12: false,
         13: false,
         14: false,
-        15: false
+        15: false,
+        16: false
       },
       B:{
         1: false,
@@ -43,8 +44,7 @@ let vacuumStatuses = {
         9: false,
         10: false,
         11: false,
-        12: false,
-        13: false
+        12: false
       }
     },
     5213: {
@@ -60,10 +60,7 @@ let vacuumStatuses = {
         9: false,
         10: false,
         11: false,
-        12: false,
-        13: false,
-        14: false,
-        15: false
+        12: false
       },
       B:{
         1: false,
@@ -76,9 +73,7 @@ let vacuumStatuses = {
         8: false,
         9: false,
         10: false,
-        11: false,
-        12: false,
-        13: false
+        11: false
       }
     }
   }
