@@ -29,8 +29,7 @@ let vacuumStatuses = {
         12: false,
         13: false,
         14: false,
-        15: false,
-        16: false
+        15: false
       },
       B:{
         1: false,
